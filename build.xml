@@ -1,0 +1,27 @@
+<project name="pacman" default="build">  
+  <target name="compile">
+    <javac debug="true" srcdir="." includeantruntime="false" includes="pacman/**"/> 
+  </target>
+
+  <target name="build" depends="compile">
+    <buildnumber file="build.num"/>
+    <mkdir dir="tmp"/>
+    <manifest file="tmp/MANIFEST.MF">
+      <attribute name="Built-By" value="${user.name}"/>
+      <attribute name="Main-Class" value="pacman.Main"/>
+    </manifest>
+    <jar destfile="pacman.jar" basedir="." includes="pacman/**/*.class,pacman/**/*.java,pacman/**/*.png" manifest="tmp/MANIFEST.MF"/>
+    <delete dir="tmp"/>
+  </target>
+
+ <target name="clean">
+  <delete includeEmptyDirs="true" failonerror="false">
+   <fileset file="lib/*.jar"/>
+   <fileset file="*.jar"/>
+   <fileset file="*.tgz"/>
+   <fileset dir="." includes="**/*.class"/>
+   <fileset dir="tmp/" includes="**"/>
+  </delete>
+ </target>
+
+</project>
