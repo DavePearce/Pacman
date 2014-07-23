@@ -21,7 +21,9 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.io.*;
 
-import static pacman.game.BoardCanvas.*;
+import pacman.ui.Board;
+
+import static pacman.ui.BoardCanvas.*;
 
 public final class Disappear extends Character {
 	private int state;

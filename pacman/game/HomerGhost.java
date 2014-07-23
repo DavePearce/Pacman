@@ -22,7 +22,9 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.io.*;
 
-import static pacman.game.BoardCanvas.*;
+import pacman.ui.Board;
+
+import static pacman.ui.BoardCanvas.*;
 
 /**
  * Homer Ghosts are controlled by the computer. They look to see where the

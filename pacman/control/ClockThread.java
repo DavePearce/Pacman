@@ -18,6 +18,8 @@
 package pacman.control;
 
 import pacman.game.*;
+import pacman.ui.Board;
+import pacman.ui.BoardFrame;
 
 /**
  * The Clock Thread is responsible for producing a consistent "pulse" which is

@@ -24,7 +24,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.Random;
 
-import static pacman.game.BoardCanvas.*;
+import pacman.ui.Board;
+
+import static pacman.ui.BoardCanvas.*;
 
 /**
  * Random Ghosts are controlled by the computer. They basically just walk in a

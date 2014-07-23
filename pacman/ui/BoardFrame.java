@@ -15,7 +15,7 @@
 //
 // Copyright 2010, David James Pearce. 
 
-package pacman.game;
+package pacman.ui;
 
 import java.awt.*;
 import java.awt.event.*;

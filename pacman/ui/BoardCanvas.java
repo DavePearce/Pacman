@@ -16,7 +16,7 @@
 // Copyright 2010, David James Pearce.
 // UPDATED 03/06/2010, Terrence Miller
 
-package pacman.game;
+package pacman.ui;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -26,6 +26,9 @@ import java.awt.*;
 import java.awt.image.*;
 
 import javax.imageio.ImageIO;
+
+import pacman.game.Character;
+import pacman.game.Pacman;
 
 /**
  * The board canvas is responsible for drawing the game. Currently, it uses a

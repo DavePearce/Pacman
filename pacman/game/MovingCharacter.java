@@ -17,6 +17,8 @@
 
 package pacman.game;
 
+import pacman.ui.Board;
+
 /**
  * The moving character class represents characters on the pacman board which
  * move. Moving characters have a direction of movement, and a speed at which

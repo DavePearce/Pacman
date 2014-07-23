@@ -23,7 +23,9 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import static pacman.game.BoardCanvas.*;
+import pacman.ui.Board;
+
+import static pacman.ui.BoardCanvas.*;
 
 public final class Pacman extends MovingCharacter {	
 	private final int uid;

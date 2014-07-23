@@ -25,6 +25,8 @@ import java.net.Socket;
 
 import pacman.control.*;
 import pacman.game.*;
+import pacman.ui.Board;
+import pacman.ui.BoardFrame;
 
 public class Main {
 	private static final int DEFAULT_CLK_PERIOD = 20;

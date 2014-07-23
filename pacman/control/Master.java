@@ -22,6 +22,7 @@ import java.io.*;
 import java.net.*;
 
 import pacman.game.*;
+import pacman.ui.Board;
 
 /**
  * A master connection receives events from a slave connection via a socket.

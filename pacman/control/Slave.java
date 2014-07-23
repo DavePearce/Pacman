@@ -22,6 +22,8 @@ import java.io.*;
 import java.net.*;
 
 import pacman.game.*;
+import pacman.ui.Board;
+import pacman.ui.BoardFrame;
 
 /**
  * A slave connection receives information about the current state of the board

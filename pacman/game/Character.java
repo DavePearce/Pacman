@@ -20,6 +20,8 @@ package pacman.game;
 import java.io.*;
 import java.awt.*;
 
+import pacman.ui.Board;
+
 /**
  * A Character is a record of information about a particular character in the
  * game. There are essentially two kinds of characters: player controlled and

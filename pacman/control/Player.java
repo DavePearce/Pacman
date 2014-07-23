@@ -20,6 +20,7 @@ package pacman.control;
 import java.awt.event.*;
 
 import pacman.game.*;
+import pacman.ui.Board;
 
 /**
  * The player class simple relays keyboard events to a character proxy in the

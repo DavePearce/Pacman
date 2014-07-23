@@ -15,10 +15,18 @@
 //
 // Copyright 2010, David James Pearce. 
 
-package pacman.game;
+package pacman.ui;
 
 import java.util.*;
 import java.io.*;
+
+import pacman.game.Character;
+import pacman.game.Disappear;
+import pacman.game.Ghost;
+import pacman.game.HomerGhost;
+import pacman.game.MovingCharacter;
+import pacman.game.Pacman;
+import pacman.game.RandomGhost;
 
 /**
  * The board class represents the pacman game board. This class is used by the
