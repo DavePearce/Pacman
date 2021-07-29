@@ -1,19 +1,19 @@
 // This file is part of the Multi-player Pacman Game.
 //
-// Pacman is free software; you can redistribute it and/or modify 
-// it under the terms of the GNU General Public License as published 
-// by the Free Software Foundation; either version 3 of the License, 
+// Pacman is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published
+// by the Free Software Foundation; either version 3 of the License,
 // or (at your option) any later version.
 //
-// Pacman is distributed in the hope that it will be useful, but 
-// WITHOUT ANY WARRANTY; without even the implied warranty of 
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See 
+// Pacman is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See
 // the GNU General Public License for more details.
 //
-// You should have received a copy of the GNU General Public 
+// You should have received a copy of the GNU General Public
 // License along with Pacman. If not, see <http://www.gnu.org/licenses/>
 //
-// Copyright 2010, David James Pearce. 
+// Copyright 2010, David James Pearce.
 
 package pacman.control;
 
@@ -37,27 +37,28 @@ public final class Master extends Thread {
 	private final Socket socket;
 
 	public Master(Socket socket, int uid, int broadcastClock, Board board) {
-		this.board = board;	
+		this.board = board;
 		this.broadcastClock = broadcastClock;
 		this.socket = socket;
 		this.uid = uid;
 	}
-	
-	public void run() {		
+
+	@Override
+	public void run() {
 		try {
 			DataInputStream input = new DataInputStream(socket.getInputStream());
 			DataOutputStream output = new DataOutputStream(socket.getOutputStream());
-			// First, write the period to the stream				
+			// First, write the period to the stream
 			output.writeInt(uid);
-			output.writeInt(board.width());			
+			output.writeInt(board.width());
 			output.writeInt(board.height());
 			output.write(board.wallsToByteArray());
 			boolean exit=false;
 			while(!exit) {
 				try {
-					
+
 					if(input.available() != 0) {
-						
+
 						// read direction event from client.
 						int dir = input.readInt();
 						switch(dir) {
@@ -74,21 +75,21 @@ public final class Master extends Thread {
 								board.player(uid).moveLeft();
 								break;
 						}
-					} 
-					
+					}
+
 					// Now, broadcast the state of the board to client
-					byte[] state = board.toByteArray(); 
+					byte[] state = board.toByteArray();
 					output.writeInt(state.length);
 					output.write(state);
 					output.flush();
 					Thread.sleep(broadcastClock);
-				} catch(InterruptedException e) {					
+				} catch(InterruptedException e) {
 				}
 			}
 			socket.close(); // release socket ... v.important!
 		} catch(IOException e) {
 			System.err.println("PLAYER " + uid + " DISCONNECTED");
 			board.disconnectPlayer(uid);
-		}		
+		}
 	}
 }
